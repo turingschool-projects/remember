@@ -14,18 +14,18 @@ test('viewing the homepage', function(assert) {
 
   andThen(function() {
     assert.equal(currentURL(), '/');
-    assert.equal(Ember.$('.spec-reminder-item').length, 5);
+    assert.equal(Ember.$('.reminder-item').length, 5);
   });
 });
 
 test('clicking on an individual item', function(assert) {
   server.createList('reminder', 5);
 
-  visit('/');
-  click('.spec-reminder-item:first');
+  visit('/reminders');
+  click('.reminder-item:first');
 
   andThen(function() {
-    assert.equal(currentURL(), '/1');
-    assert.equal(Ember.$('.spec-reminder-item:first').text().trim(), Ember.$('.spec-reminder-title').text().trim());
+    assert.equal(currentURL(), '/reminders/reminder/1');
+    assert.equal(Ember.$('.reminder-item:first').text().trim(), Ember.$('.reminder-title').text().trim());
   });
 });
