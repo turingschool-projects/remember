@@ -2,10 +2,11 @@
 
 {{#each model as |reminder|}}
   <div class='reminder-item'>
-    <h3>{{reminder.title}}</h3>
-    <p>{{reminder.title}}</p>
+    {{#link-to 'reminders.reminder' reminder }}<h3>{{reminder.title}}</h3> {{/link-to}}
   </div>
 {{/each}}
+
+{{#link-to 'reminders.new'}}New shit{{/link-to}}
 
 
 {{outlet}}
